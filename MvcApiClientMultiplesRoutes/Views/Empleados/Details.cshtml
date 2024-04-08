@@ -1,0 +1,13 @@
+﻿@model Empleado
+
+<h1>Detalles del empleado</h1>
+
+<h1>@Model.IdEmpleado, @Model.Apellido</h1>
+<h3>@Model.Oficio, @Model.Salario</h3>
+<h4>Dept: @Model.Departamento</h4>
+
+<a asp-controller="Empleados"
+   asp-action="Index"
+   class="btn btn-success">
+    Volveer
+</a>

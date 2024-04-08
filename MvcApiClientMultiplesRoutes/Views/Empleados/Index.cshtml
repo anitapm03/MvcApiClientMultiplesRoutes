@@ -1,0 +1,46 @@
+﻿@model List<Empleado>
+@{
+    List<string> oficios = ViewData["OFICIOS"] as List<string>;
+}
+<h1>Empleados</h1>
+
+<form method="post">
+    <select name="oficio" class="form-control">
+        @foreach (string o in oficios)
+        {
+            <option value="@o">@o</option>
+        }
+    </select>
+</form>
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>APELLIDO</th>
+            <th>OFICIO</th>
+            <th>SALARIO</th>
+            <th>DEPARTAMENTO</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Empleado e in Model)
+        {
+            <tr>
+                <td>@e.IdEmpleado</td>
+                <td>@e.Apellido</td>
+                <td>@e.Oficio</td>
+                <td>@e.Salario</td>
+                <td>@e.Departamento</td>
+                <td>
+                    <a asp-controller="Empleados"
+                       asp-action="Details"
+                       asp-route-id="@e.IdEmpleado"
+                       class="btn btn-success">
+                        Ver detalles
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
